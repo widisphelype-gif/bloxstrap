@@ -31,6 +31,13 @@ namespace Bloxstrap.Models.Persistable
         public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
+        // performance booster (all opt-in)
+        public bool BoostCleanLogs { get; set; } = false;
+        public bool BoostHighPerformancePlan { get; set; } = false;
+        public bool BoostHighPriority { get; set; } = false;
+        public bool BoostCloseApps { get; set; } = false;
+        public string BoostAppsToClose { get; set; } = "chrome.exe, msedge.exe, firefox.exe, Spotify.exe, OneDrive.exe, Teams.exe";
+
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
     }
