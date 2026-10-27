@@ -43,5 +43,37 @@
             </controls:OptionControl.Style>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <TextBlock Margin="0,16,0,8" Text="Performance booster" FontSize="16" FontWeight="Medium" />
+
+        <controls:OptionControl
+            Header="Clean Roblox logs"
+            Description="Deletes old Roblox log files before launching.">
+            <ui:ToggleSwitch IsChecked="{Binding BoostCleanLogs, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="High performance power plan"
+            Description="Switches Windows to the High performance power plan when Roblox launches. It stays active afterwards, which can reduce battery life on laptops.">
+            <ui:ToggleSwitch IsChecked="{Binding BoostHighPerformancePlan, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="High process priority"
+            Description="Starts Roblox with High CPU priority.">
+            <ui:ToggleSwitch IsChecked="{Binding BoostHighPriority, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="Close background apps"
+            Description="Force-closes the apps listed below before launching. Unsaved work in those apps will be lost.">
+            <ui:ToggleSwitch IsChecked="{Binding BoostCloseApps, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="Apps to close"
+            Description="Process names separated by commas.">
+            <ui:TextBox Width="320" Text="{Binding BoostAppsToClose, Mode=TwoWay}" />
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>
