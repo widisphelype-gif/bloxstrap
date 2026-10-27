@@ -578,6 +578,11 @@ namespace Bloxstrap
                 return;
             }
 
+            // optional pre-launch optimizations (opt-in, see Settings > Behaviour)
+            // this must run before the log watcher below is created
+            if (!IsStudioLaunch)
+                PerformanceBooster.RunBeforeLaunch();
+
             string? logFileName = null;
 
             string rbxDir = Path.Combine(Paths.LocalAppData, "Roblox");
@@ -609,6 +614,9 @@ namespace Bloxstrap
             {
                 using var process = Process.Start(startInfo)!;
                 _appPid = process.Id;
+
+                if (!IsStudioLaunch)
+                    PerformanceBooster.ApplyPriority(process);
             }
             catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
             {
